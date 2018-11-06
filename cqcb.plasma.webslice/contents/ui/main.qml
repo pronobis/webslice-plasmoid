@@ -134,6 +134,7 @@ Item {
          */
         onNavigationRequested: {
             if(isExternalLink){
+                isExternalLink = false;
                 request.action = WebView.IgnoreRequest;
                 Qt.openUrlExternally(request.url);
             }
@@ -159,7 +160,7 @@ Item {
                     isExternalLink = true
                 }else{
                     mouse.accepted = false
-                    isExternalLink = false
+                    isExternalLink = true
                 }
             }
             onPressed: {
@@ -171,7 +172,7 @@ Item {
                     isExternalLink = true
                 }else{
                     mouse.accepted = false
-                    isExternalLink = false
+                    isExternalLink = true
                 }
             }
         }
@@ -295,6 +296,7 @@ Item {
                 busyIndicator.visible = true;
                 busyIndicator.running = true;
             }
+            isExternalLink = false;
             webviewID.reload();
         }
     }
