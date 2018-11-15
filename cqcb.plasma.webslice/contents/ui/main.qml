@@ -92,6 +92,10 @@ Item {
 
         property bool isExternalLink
 
+        Plasmoid.onActivated: {
+          reloadFn();
+        }
+
         Connections {
             target: main
             onPopupSizeChanged: {
